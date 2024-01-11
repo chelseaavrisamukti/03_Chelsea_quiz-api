@@ -45,7 +45,7 @@ exports.update = async (req, res) => {
         res.json({
             message: "Quizzes updated successfully.",
             data: quiz,
-        })
+        });
     } catch (error) {
         res.status(500).json({
             message: error.message || "some error occurred while retrieving quiz",
@@ -92,14 +92,14 @@ exports.findOne = async (req, res) => {
 
 //menampilkan atau mengambil semua data quiz berdasarkan category tertentu
 exports.getByCategoryId = async (req, res) => {
-    const id = req.params.Quiz.id
+    const id = req.params.id
     const quizzes = await Quiz.findAll({
         where : {
             categoryId: id
         }
     })
     res.json({
-        message: 'Quizzes retrived seccessfully with categoryId=${id}.',
+        message: `Quizzes retrived seccessfully with categoryId=${id}.`,
         data: quizzes,
     });
 }
@@ -113,6 +113,7 @@ exports.getByLevelId = async (req, res) => {
         }
     })
     res.json({
-        message: 'Quizzes retrived successfully with levelId=${id}.',
+        message: `Quizzes retrived successfully with levelId=${id}.`,
+        data: quizzes,
     });
 }

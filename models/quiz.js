@@ -19,10 +19,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
         },
         categoryId: {
-            type: Sequelize.STRING,
+            type: Sequelize.INTEGER,
         },
         levelId: {
-            type: Sequelize.STRING,
+            type: Sequelize.INTEGER,
         },
     });
     return Quiz;
